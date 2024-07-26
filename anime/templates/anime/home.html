@@ -1,0 +1,37 @@
+<!-- anime/templates/anime/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Anime List</h1>
+        <div class="row">
+            {% for anime in anime_list %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ anime['image'] }}" class="card-img-top" alt="{{ anime['title'] }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ anime['title'] }}</h5>
+                        <p class="card-text">{{ anime['synopsis'] }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
