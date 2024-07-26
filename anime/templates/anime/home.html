@@ -22,10 +22,10 @@
                 {% for anime in anime_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <img src="{{ anime['image'] }}" class="card-img-top" alt="{{ anime['title'] }}">
+                        <img src="{{ anime.poster }}" class="card-img-top" alt="{{ anime.title }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ anime['title'] }}</h5>
-                            <p class="card-text">{{ anime['synopsis'] }}</p>
+                            <h5 class="card-title">{{ anime.title }}</h5>
+                            <p class="card-text">{{ anime.synopsis }}</p>
                         </div>
                     </div>
                 </div>
@@ -38,8 +38,25 @@
         <h2>Anime Info</h2>
         <div>
             {% if anime_info %}
-                <p>{{ anime_info }}</p>
+                <h3>{{ anime_info.title }}</h3>
+                <p>{{ anime_info.synopsis }}</p>
             {% else %}
                 <p>No info available.</p>
             {% endif %}
         </div>
+
+        <h2>Video Servers</h2>
+        <div>
+            {% if video_servers %}
+                <ul>
+                    {% for server in video_servers %}
+                    <li>{{ server }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No video servers available.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
